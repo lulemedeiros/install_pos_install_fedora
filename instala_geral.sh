@@ -37,10 +37,10 @@ sudo dnf -y install neofetch.noarch
 sudo dnf -y install numlockx.x86_64
 sudo dnf -y install obs-studio.x86_64
 sudo dnf -y install qt5-designer.x86_64
-sudo dnf -y install R-rstudioapi.noarch
 sudo dnf -y install R.x86_64
-sudo dnf -y install remmina
 sudo dnf -y install rstudio.x86_64
+sudo dnf -y install R-rstudioapi.noarch
+sudo dnf -y install remmina
 sudo dnf -y install sl
 sudo dnf -y install sqlitebrowser
 sudo dnf -y install tilix.x86_64
