@@ -2,36 +2,57 @@
 
 set -xueo pipefail
 
-sudo dnf -y install fedora-workstation-repositories
+sudo dnf config-manager --set-enabled google-chrome
 
 sudo dnf update -y
 
 # Instalando os programas que eu gosto, para trabalho e diversão.
+sudo dnf -y install asciiquarium.noarch
+sudo dnf -y install bashtop
 sudo dnf -y install clamav clamtk
-sudo freshclam
-sudo dnf config-manager --set-enabled google-chrome
-sudo dnf -y install google-chrome-stable
-sudo dnf -y install numlockx.x86_64
-sudo dnf -y install remmina
-sudo dnf -y install xpad.x86_64
-sudo dnf -y install htop.x86_64
-sudo dnf -y install git
-sudo dnf -y install sl
-sudo dnf -y install gimp
-sudo dnf -y install vlc.x86_64
 sudo dnf -y install cowsay
-sudo dnf -y install xcowsay
-sudo dnf -y install toilet.x86_64
-sudo dnf -y install xrdp
-sudo dnf -y install xorgxrdp
-sudo dnf -y install filezilla.x86_64
-sudo dnf -y install figlet.x86_64
-sudo dnf -y install tilix.x86_64
 sudo dnf -y install discord.x86_64
-sudo dnf -y install gpick.x86_64
+sudo dnf -y install evolution.x86_64
+sudo dnf -y install fedora-workstation-repositories
+sudo dnf -y install fedora-workstation-repositories
+sudo dnf -y install figlet.x86_64
+sudo dnf -y install filezilla.x86_64
+sudo dnf -y install firefox.x86_64
 sudo dnf -y install fish
-sudo dnf -y install libreoffice-langpack-pt-BR.x86_64
+sudo dnf -y install fontawesome-fonts-web.noarch
+sudo dnf -y install gimp
+sudo dnf -y install git
+sudo dnf -y install google-chrome-stable
+sudo dnf -y install google-croscore-fonts-common.noarch
+sudo dnf -y install google-droid-fonts-all.noarch
+sudo dnf -y install google-droid-sans-mono-fonts
+sudo dnf -y install gpick.x86_64
+sudo dnf -y install htop.x86_64
+sudo dnf -y install ibm-plex-fonts-common.noarch
+sudo dnf -y install jetbrains-mono-fonts-all.noarch
+sudo dnf -y install julietaula-montserrat-fonts-common.noarch
 sudo dnf -y install libreoffice-icon-theme-papirus.noarch
+sudo dnf -y install libreoffice-langpack-pt-BR.x86_64
+sudo dnf -y install lolcat.x86_64
+sudo dnf -y install neofetch.noarch
+sudo dnf -y install numlockx.x86_64
+sudo dnf -y install obs-studio.x86_64
+sudo dnf -y install qt5-designer.x86_64
+sudo dnf -y install R-rstudioapi.noarch
+sudo dnf -y install R.x86_64
+sudo dnf -y install remmina
+sudo dnf -y install rstudio.x86_64
+sudo dnf -y install sl
+sudo dnf -y install sqlitebrowser
+sudo dnf -y install tilix.x86_64
+sudo dnf -y install toilet.x86_64
+sudo dnf -y install vlc.x86_64
+sudo dnf -y install xcowsay.x86_64
+sudo dnf -y install xorgxrdp
+sudo dnf -y install xpad.x86_64
+sudo dnf -y install xrdp
+
+sudo freshclam
 
 # instalando o thema Flat Remix no terminal e no usuário corrente
 sudo dnf -y install flat-remix-gtk3-theme.noarch
@@ -91,6 +112,8 @@ sudo dnf -y install -y python3.x86_64 \
     python3-markdown \
     python3-ldap3.noarch \
     python-vlc \
+    
+pip install PyQt5 pyside2
 
 # Instalando e configurando minha área de trabalho para acessar de fora
 # não se angane, não é só isso, há muito mais segredos nesta configuração rsrs
