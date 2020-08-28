@@ -2,6 +2,7 @@
 
 set -xueo pipefail
 
+sudo dnf -y install fedora-workstation-repositories
 sudo dnf config-manager --set-enabled google-chrome
 
 sudo dnf update -y
@@ -13,8 +14,6 @@ sudo dnf -y install clamav clamtk
 sudo dnf -y install cowsay
 sudo dnf -y install discord.x86_64
 sudo dnf -y install evolution.x86_64
-sudo dnf -y install fedora-workstation-repositories
-sudo dnf -y install fedora-workstation-repositories
 sudo dnf -y install figlet.x86_64
 sudo dnf -y install filezilla.x86_64
 sudo dnf -y install firefox.x86_64
