@@ -6,7 +6,7 @@ sudo dnf -y install fedora-workstation-repositories
 
 sudo dnf update -y
 
-# Instalando os programas que eu gosto, para trabalho e diversão.
+# Instalando os programas que eu gosto.
 sudo dnf -y install clamav clamtk
 sudo freshclam
 sudo dnf config-manager --set-enabled google-chrome
@@ -72,6 +72,8 @@ sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 sudo dnf -y install brave-keyring brave-browser
 
 # Instalando o programas para acessar as maquinas
+wget https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc
+sudo rpm --import TeamViewer2017.asc
 wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -O teamviewer.rpm
 sudo dnf -y install teamviewer.rpm
 
