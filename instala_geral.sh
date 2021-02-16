@@ -6,9 +6,6 @@ sudo dnf -y install fedora-workstation-repositories
 
 sudo dnf update -y
 
-# Instalando os programas que eu gosto.
-sudo dnf -y install clamav clamtk
-sudo freshclam
 sudo dnf config-manager --set-enabled google-chrome
 sudo dnf -y install google-chrome-stable
 sudo dnf -y install numlockx.x86_64
@@ -17,67 +14,39 @@ sudo dnf -y install xpad.x86_64
 sudo dnf -y install htop.x86_64
 sudo dnf -y install git
 sudo dnf -y install sl
-sudo dnf -y install gimp
-sudo dnf -y install gnome-software.x86_64
-sudo dnf -y install vlc.x86_64
 sudo dnf -y install cowsay
-sudo dnf -y install xcowsay
+sudo dnf -y install xcowsay.x86_64
 sudo dnf -y install toilet.x86_64
 sudo dnf -y install xrdp
 sudo dnf -y install xorgxrdp
 sudo dnf -y install filezilla.x86_64
 sudo dnf -y install figlet.x86_64
-sudo dnf -y install tilix.x86_64
-sudo dnf -y install discord.x86_64
-sudo dnf -y install gpick.x86_64
 sudo dnf -y install fish
+sudo dnf -y install gpick.x86_64
+sudo dnf -y install tilix.x86_64
+sudo dnf -y install gnome-software.x86_64
 sudo dnf -y install libreoffice-langpack-pt-BR.x86_64
 sudo dnf -y install libreoffice-icon-theme-papirus.noarch
+#sudo rpm --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
+#sudo printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=gitlab.com_paulcarroty_vscodium_repo\nbaseurl=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg" |sudo tee -a /etc/yum.repos.d/vscodium.repo
+#sudo dnf -y install codium
 
-# instalando o thema Flat Remix no terminal e no usuário corrente
-sudo dnf -y install flat-remix-gtk3-theme.noarch
-bash -c "$(curl -sLo- https://git.io/JvvDs)"
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+sudo dnf check-update
+sudo dnf -y install code
 
-# Instalando o Plank corretamente
-# Renomeando o repositório do fedora pois o plank que tem lá
-# não aceita a configuração de zoom dos icones.
-# E instalando o plank do repositório do copr
-# depois de instalado eu volto o repositório do fedora
-# mas, adiciono a exclusão de atualização do plank
-# no dnf.conf evidando que ele atualize pelo repo
-# da fedora e desconfigure tudo.
-# NÃO USO MAIS, ACHO A BARRA DO CINNAMON MAIS PRÁTICA, MAS ESSA INSTALAÇÃO FUNCIONA #
-#sudo dnf -y copr enable decathorpe/elementary-nightly
-#sudo dnf -y copr enable daniruiz/flat-remix
-#sudo dnf update -y
-#sudo mv /etc/yum.repos.d/fedora.repo fedora.repo.bkp
-#sudo dnf -y install plank.x86_64
-#sudo dnf -y install plank-docklets.x86_64
-#sudo dnf -y install elementary-theme-plank.noarch
-#sudo sed -i.bak '2i exclude=plank\nexclude=plank-docklets' /etc/dnf/dnf.conf
-#sudo mv /etc/yum.repos.d/fedora.repo.bkp fedora.repo
+sudo dnf -y install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+sudo dnf -y install vlc
 
-# Instalando o VSCodium
-sudo rpm --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=gitlab.com_paulcarroty_vscodium_repo\nbaseurl=https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg" |sudo tee -a /etc/yum.repos.d/vscodium.repo
-sudo dnf -y install codium
+sudo rpm --import https://packagecloud.io/shiftkey/desktop/gpgkey
+sudo sh -c -y 'echo -e "[shiftkey]\nname=GitHub Desktop\nbaseurl=https://packagecloud.io/shiftkey/desktop/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/shiftkey/desktop/gpgkey" > /etc/yum.repos.d/shiftkey-desktop.repo'
+sudo dnf -y install github-desktop
 
-# Instalando o ambiente de virtualização
-sudo dnf -y install @virtualization
+sudo dnf -y install virt-manager bridge-utils libvirt virt-install qemu-kvm
 sudo dnf -y install virt-top libguestfs-tools
 
-# Instalei esse novo browser para testar, ainda não tenho opinião sobre ele, tem propaganda dele mar barra as dos sites.
-sudo dnf -y config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-sudo dnf -y install brave-keyring brave-browser
-
-# Instalando o programas para acessar as maquinas
-wget https://dl.teamviewer.com/download/linux/signature/TeamViewer2017.asc
-sudo rpm --import TeamViewer2017.asc
-wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -O teamviewer.rpm
-sudo dnf -y install teamviewer.rpm
-
-# Instalando meus modulos basicos de python
 sudo dnf -y install -y python3.x86_64 \
     python-crypto \
     python-devel \
@@ -95,8 +64,6 @@ sudo dnf -y install -y python3.x86_64 \
     python3-ldap3.noarch \
     python-vlc \
 
-# Instalando e configurando minha área de trabalho para acessar de fora
-# não se angane, não é só isso, há muito mais segredos nesta configuração rsrs
 sudo systemctl start xrdp
 sudo systemctl enable xrdp
 
