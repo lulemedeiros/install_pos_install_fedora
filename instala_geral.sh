@@ -14,6 +14,7 @@ sudo dnf -y install xpad.x86_64
 sudo dnf -y install htop.x86_64
 sudo dnf -y install git
 sudo dnf -y install sl
+sudo dnf -y install ulauncher.noarch
 sudo dnf -y install cowsay
 sudo dnf -y install xcowsay.x86_64
 sudo dnf -y install toilet.x86_64
