@@ -50,21 +50,21 @@ sudo dnf -y install virt-manager bridge-utils libvirt virt-install qemu-kvm
 sudo dnf -y install virt-top libguestfs-tools
 
 sudo dnf -y install -y python3.x86_64 \
-    python-crypto \
-    python-devel \
-    python-dns \
-    python-markdown \
-    python2-gpg \
-    python2-tkinter.x86_64 \
-    python3-tkinter.x86_64 \
     python3 \
+    python3-crypto \
+    python3-devel \
+    python3-dns \
+    python3-markdown \
+    python3-gpg \
+    python3-tkinter.x86_64 \
+    python3-tkinter.x86_64 \
     python3-crypto \
     python3-devel \
     python3-dns \
     python3-gpg \
     python3-markdown \
     python3-ldap3.noarch \
-    python-vlc \
+    python3-vlc \
 
 sudo systemctl start xrdp
 sudo systemctl enable xrdp
