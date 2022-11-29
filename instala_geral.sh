@@ -29,9 +29,6 @@ sudo dnf -y install gnome-software.x86_64
 sudo dnf -y install libreoffice-langpack-pt-BR.x86_64
 sudo dnf -y install ulauncher 
 sudo dnf -y install libreoffice-icon-theme-papirus.noarch
-#sudo rpm --import https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg
-#sudo printf "[gitlab.com_paulcarroty_vscodium_repo]\nname=gitlab.com_paulcarroty_vscodium_repo\nbaseurl=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/repos/rpms/\nenabled=1\ngpgcheck=1\nrepo_gpgcheck=1\ngpgkey=https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/raw/master/pub.gpg" |sudo tee -a /etc/yum.repos.d/vscodium.repo
-#sudo dnf -y install codium
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
@@ -43,7 +40,7 @@ sudo dnf -y install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-non
 sudo dnf -y install vlc
 
 sudo rpm --import https://packagecloud.io/shiftkey/desktop/gpgkey
-sudo sh -c -y 'echo -e "[shiftkey]\nname=GitHub Desktop\nbaseurl=https://packagecloud.io/shiftkey/desktop/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/shiftkey/desktop/gpgkey" > /etc/yum.repos.d/shiftkey-desktop.repo'
+sudo sh -c 'echo -e "[shiftkey]\nname=GitHub Desktop\nbaseurl=https://packagecloud.io/shiftkey/desktop/el/7/\$basearch\nenabled=1\ngpgcheck=0\nrepo_gpgcheck=1\ngpgkey=https://packagecloud.io/shiftkey/desktop/gpgkey" > /etc/yum.repos.d/shiftkey-desktop.repo'
 sudo dnf -y install github-desktop
 
 sudo dnf -y install virt-manager bridge-utils libvirt virt-install qemu-kvm
@@ -73,6 +70,8 @@ sudo systemctl start libvirtd
 sudo systemctl enable libvirtd
 
 sudo firewall-cmd --add-port=3389/tcp --permanent
+sudo firewall-cmd --add-port=22/tcp --permanent
+sudo firewall-cmd --add-port=5000/tcp --permanent
 sudo firewall-cmd --reload
 
 sudo dnf -y clean all
